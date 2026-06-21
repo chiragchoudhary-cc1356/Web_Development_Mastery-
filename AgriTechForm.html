@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AGRI-TECH FORM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <br><br>
+        <label>Farmer Name:</label> <input type="text" placeholder="Farmer Name">
+        <br><br>
+        <label>Mobile Number:</label> <input type="tel" placeholder="98765XXXXX">
+        <br><br>
+        <label>State/Village:</label> <input type="text" placeholder="Address"> <br><br>
+        <label>Total Land Size:</label>
+        <input type="number" max="100" placeholder="1-100Acres">
+        <br><br>
+        <label>Current Corp:</label> <input type="text" placeholder="Vartmaan Fasal">
+        <br><br>
+        <label>Soil Test:</label>
+        <input type="radio" name="soil_test" value="Yes"><span class="form-text">Yes</span>
+        <input type="radio" name="soil_test" value="No"><span class="form-text">No</span>
+        <br><br>
+        <label>Contract Farming:</label> <input type="checkbox" value="Yes"><span class="form-text">Yes</span>
+        <br><br>
+        <label>Contract Duration(1-5 years):</label>
+        <input type="range" max="5">
+        <br><br>
+        <label>Land Documents Upload:</label> <input type="file">
+        <br><br>
+        <label>Date of Registration:</label> <input type="date">
+        <br><br>
+        
+        <label>Security Check (Captcha):</label><br>
+        <div class="captcha-container">
+            <span id="captcha" class="captcha-code">A7K9R</span>
+        </div>
+        <input type="text" id="captcha-input" placeholder="above text enter here" required> 
+        <button type="button" onclick="generateCaptcha()">🔄️reset captcha</button>
+        <br><br>
+        
+        <input type="submit" value="Submit Form"> 
+    </form>
+
+    <script>
+    function generateCaptcha() {
+        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let result = '';
+        for (let i = 0; i < 5; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        document.getElementById('captcha').innerText = result;
+    }
+    window.onload = generateCaptcha;
+    </script>
+</body>
+</html>
